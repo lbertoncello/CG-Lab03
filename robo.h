@@ -37,10 +37,6 @@ class Robo {
             direction = -1;
         };
 
-        void Desenha() {
-            DesenhaRobo (gX, gY, gThetaWheel, gTheta1, gTheta2, gTheta3);
-        };
-
         void incrementGX(float value) {
             this->gX += value;
         }
@@ -49,6 +45,21 @@ class Robo {
             this->gY += value;
         }
 
+        void incrementTheta1(float value) {
+            this->gTheta1 += value;
+        }
+
+        void incrementTheta2(float value) {
+            this->gTheta2 += value;
+        }
+
+        void incrementTheta3(float value) {
+            this->gTheta3 += value;
+        }
+
+        void Desenha() {
+            DesenhaRobo (gX, gY, gThetaWheel, gTheta1, gTheta2, gTheta3);
+        };
 };
 
 #endif

@@ -2,22 +2,41 @@
 #include <stdio.h>
 #include "robo.h"
 
-float offset_value = 0.5;
+float coordinate_offset_value = 1.0;
+float angle_offset_value = 1.0;
 Robo* robo = new Robo();
 bool* keyStates = new bool[256];
 
 void keyOperations (void) {  
     if (keyStates['w']) { // If the 'a' key has been pressed  
-		robo->incrementGY(offset_value);
+		robo->incrementGY(coordinate_offset_value);
     }  
     if(keyStates['a']) {
-		robo->incrementGX(-offset_value);
+		robo->incrementGX(-coordinate_offset_value);
     }
     if(keyStates['s']) {
-		robo->incrementGY(-offset_value);
+		robo->incrementGY(-coordinate_offset_value);
     }
     if(keyStates['d']) {
-		robo->incrementGX(offset_value);
+		robo->incrementGX(coordinate_offset_value);
+    }
+	if(keyStates['r']) {
+		robo->incrementTheta1(-angle_offset_value);
+    }
+	if(keyStates['f']) {
+		robo->incrementTheta1(angle_offset_value);
+    }
+	if(keyStates['t']) {
+		robo->incrementTheta2(-angle_offset_value);
+    }
+	if(keyStates['g']) {
+		robo->incrementTheta2(angle_offset_value);
+    }
+	if(keyStates['y']) {
+		robo->incrementTheta3(-angle_offset_value);
+    }
+	if(keyStates['h']) {
+		robo->incrementTheta3(angle_offset_value);
     }
 } 
 
@@ -32,6 +51,24 @@ void keyPress(unsigned char key, int x, int y) {
         keyStates[key] = true;
     }
     if(key == 'd') {
+        keyStates[key] = true;
+    }
+	if(key == 'r') {
+        keyStates[key] = true;
+    }
+	if(key == 'f') {
+        keyStates[key] = true;
+    }
+	if(key == 't') {
+        keyStates[key] = true;
+    }
+	if(key == 'g') {
+        keyStates[key] = true;
+    }
+	if(key == 'y') {
+        keyStates[key] = true;
+    }
+	if(key == 'h') {
         keyStates[key] = true;
     }
 }
