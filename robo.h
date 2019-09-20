@@ -4,6 +4,7 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 
+// Dimensions
 #define paddleHeight 80
 #define paddleWidth 10
 #define baseHeight 40
@@ -19,30 +20,34 @@ class Robo {
     GLfloat gThetaWheel;
     GLfloat direction;
 
-private:
+    private:
+        void DesenhaRect (GLint height, GLint width, GLfloat red, GLfloat green, GLfloat blue);
+        void DesenhaCirc (GLfloat radius, GLfloat red, GLfloat green, GLfloat blue);
+        void DesenhaBraco (GLfloat x, GLfloat y, GLfloat theta1, GLfloat theta2, GLfloat theta3);
+        void DesenhaRobo (GLfloat x, GLfloat y, GLfloat thetaWheel, GLfloat theta1, GLfloat theta2, GLfloat theta3);
 
-    void DesenhaRect( GLint height, GLint width, GLfloat R, GLfloat G, GLfloat B);
+    public:
+        Robo () {
+            gX = 0;
+            gY = 0;
+            gTheta1 = 0;
+            gTheta2 = 0;
+            gTheta3 = 0;
+            gThetaWheel = 0;
+            direction = -1;
+        };
 
-    //void DesenhaCirc( GLint radius, GLfloat R, GLfloat G, GLfloat B);
+        void Desenha() {
+            DesenhaRobo (gX, gY, gThetaWheel, gTheta1, gTheta2, gTheta3);
+        };
 
-    //void DesenhaBraco( GLfloat x, GLfloat y, GLfloat theta1, Glfloat theta2);
-
-    void DesenhaRobo( GLfloat x, GLfloat y, GLfloat thetaWheel, GLfloat theta1, GLfloat theta2, GLfloat theta3);
-
-public:
-    Robo() {
-        gX = 0;
-        gY = -100;
-        gTheta1 = 0;
-        gTheta2 = 0;
-        gTheta3 = 0;
-        gThetaWheel = 0;
-        direction = -1;
-    };
-
-    void Desenha() {
-        DesenhaRobo(gX, gY, gThetaWheel, gTheta1, gTheta2, gTheta2);
-    }
+        void incrementGX(float value) {
+            this->gX += value;
+        }
+    
+        void incrementGY(float value) {
+            this->gY += value;
+        }
 
 };
 
