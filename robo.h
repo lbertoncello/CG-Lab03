@@ -20,7 +20,6 @@ class Robo {
     GLfloat direction;
 
 private:
-
     void DesenhaRect( GLint height, GLint width, GLfloat R, GLfloat G, GLfloat B);
 
     //void DesenhaCirc( GLint radius, GLfloat R, GLfloat G, GLfloat B);
