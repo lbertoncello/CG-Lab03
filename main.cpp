@@ -11,10 +11,10 @@ void keyOperations (void) {
 		robo->incrementGY(offset_value);
     }  
     if(keyStates['a']) {
-		robo->incrementGX(-1 * offset_value);
+		robo->incrementGX(-offset_value);
     }
     if(keyStates['s']) {
-		robo->incrementGY(-1 * offset_value);
+		robo->incrementGY(-offset_value);
     }
     if(keyStates['d']) {
 		robo->incrementGX(offset_value);
