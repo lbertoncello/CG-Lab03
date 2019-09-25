@@ -57,6 +57,9 @@ class Robo {
             this->gTheta3 += value;
         }
 
+        float calcDelta(float delta, float radius);
+        void move(float coordinate_offset_value);
+
         void Desenha() {
             DesenhaRobo (gX, gY, gThetaWheel, gTheta1, gTheta2, gTheta3);
         };

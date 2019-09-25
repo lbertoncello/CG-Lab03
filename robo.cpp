@@ -59,7 +59,23 @@ void drawCircle(float r, GLfloat red, GLfloat green, GLfloat blue) {
 
 void Robo::DesenhaCirc(GLfloat radius, GLfloat red, GLfloat green, GLfloat blue) {
 	glPushMatrix();
-		//glRotatef(theta3, 0.0, 0.0, 1.0);
+		glTranslatef(baseWidth/2, 0.0, 0.0);
+		glRotatef(this->gThetaWheel, 0.0, 0.0, 1.0);     
 		drawCircle(radius, red, green, blue);
 	glPopMatrix();	
+
+	glPushMatrix();
+		glTranslatef(-baseWidth/2, 0.0, 0.0);
+		glRotatef(this->gThetaWheel, 0.0, 0.0, 1.0);     
+		drawCircle(radius, red, green, blue);
+	glPopMatrix();	
+}
+
+float Robo::calcDelta(float delta, float radius) {
+	return delta*360 / 2 * 3.1415 * radius; 
+}
+
+void Robo::move(float coordinate_offset_value) {
+	this->incrementGX(coordinate_offset_value);
+	this->gThetaWheel += this->calcDelta(coordinate_offset_value, radiusWheel);
 }

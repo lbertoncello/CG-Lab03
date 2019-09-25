@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "robo.h"
 
-float coordinate_offset_value = 1.0;
+float coordinate_offset_value = 3.0;
 float angle_offset_value = 1.0;
 Robo* robo = new Robo();
 bool* keyStates = new bool[256];
@@ -12,13 +12,13 @@ void keyOperations (void) {
 		robo->incrementGY(coordinate_offset_value);
     }  
     if(keyStates['a']) {
-		robo->incrementGX(-coordinate_offset_value);
+		robo->move(-coordinate_offset_value);
     }
     if(keyStates['s']) {
 		robo->incrementGY(-coordinate_offset_value);
     }
     if(keyStates['d']) {
-		robo->incrementGX(coordinate_offset_value);
+		robo->move(coordinate_offset_value);
     }
 	if(keyStates['r']) {
 		robo->incrementTheta1(-angle_offset_value);
